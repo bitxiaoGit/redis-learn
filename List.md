@@ -109,7 +109,7 @@ rpush list:1 "{\"data\":\"11\"}"
 | ------ | --------------------- | ---------------------------------------------- |
 | LRANGE | LRANGE key start stop | 返回存储在 key 的列表里指定范围内的元素。      |
 | LINDEX | LINDEX key index      | 返回列表里的元素的索引 index 存储在 key 里面。 |
-| LLEN   | LLEN key              | 返回存储在 key 里的list的长度。                |
+| LLEN   | LLEN key              | 返回name为 key 的list的长度。                |
 
 #### 
 
