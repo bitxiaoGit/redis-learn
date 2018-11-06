@@ -94,8 +94,8 @@ public class ListAction {
      */
     @RequestMapping(value = "/leftPushValue",method = RequestMethod.POST)
     public Long leftPushValue(@RequestBody JSONObject value) {
-        JSONObject newValue = value.getJSONObject("newValue");
-        JSONObject oldValue = value.getJSONObject("oldValue");
+        String newValue = value.getString("newValue");
+        String oldValue = value.getString("oldValue");
         return listOperations.leftPush(LIST_KEY, oldValue, newValue);
     }
 }
