@@ -90,11 +90,12 @@ public class ListAction {
     /**
      * 在某一个元素的左边添加新内容
      * @param value
-     * @param judgeValue
      * @return
      */
     @RequestMapping(value = "/leftPushValue",method = RequestMethod.POST)
-    public Long leftPushValue(@RequestBody JSONObject value, JSONObject judgeValue) {
-        return listOperations.leftPush(LIST_KEY, judgeValue, value);
+    public Long leftPushValue(@RequestBody JSONObject value) {
+        JSONObject newValue = value.getJSONObject("newValue");
+        JSONObject oldValue = value.getJSONObject("oldValue");
+        return listOperations.leftPush(LIST_KEY, oldValue, newValue);
     }
 }
