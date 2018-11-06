@@ -1,10 +1,12 @@
 package com.learnRedis.setexample;
 
+import com.learnRedis.bean.SetReqBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,13 +61,13 @@ public class SetAction {
      * @return
      */
     @RequestMapping(value = "/addFriend", method = RequestMethod.POST)
-    public Long addFriend(String user, String friend) {
+    public Long addFriend(@RequestBody SetReqBean setReqBean) {
         String currentKey = A_FRIEND_KEY;
-        if ("B".equals(user)) {
+        if ("B".equals(setReqBean.getUser())) {
             currentKey = B_FRIEND_KEY;
         }
         //返回添加成功的条数
-        return setOperations.add(currentKey, friend);
+        return setOperations.add(currentKey, setReqBean.getFriend());
     }
 
     /**
@@ -74,13 +76,13 @@ public class SetAction {
      * @return
      */
     @RequestMapping(value = "/delFriend", method = RequestMethod.DELETE)
-    public Long delFriend(String user, String friend) {
+    public Long delFriend(@RequestBody SetReqBean setReqBean) {
         String currentKey = A_FRIEND_KEY;
-        if ("B".equals(user)) {
+        if ("B".equals(setReqBean.getUser())) {
             currentKey = B_FRIEND_KEY;
         }
         //返回删除成功的条数
-        return setOperations.remove(currentKey, friend);
+        return setOperations.remove(currentKey, setReqBean.getFriend());
     }
 
     /**

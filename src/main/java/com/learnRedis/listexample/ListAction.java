@@ -88,13 +88,13 @@ public class ListAction {
 
 
     /**
-     * 在某一个元素的左边添加新内容
+     * 在oldValue的左边添加newValue，如果oldValue存在，则成功
      * @param value
      * @return
      */
     @RequestMapping(value = "/leftPushValue",method = RequestMethod.POST)
     public Long leftPushValue(@RequestBody JSONObject value) {
-        String newValue = value.getString("newValue");
+        String newValue = value.getString("newValue");//新插入value
         String oldValue = value.getString("oldValue");
         return listOperations.leftPush(LIST_KEY, oldValue, newValue);
     }
