@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/list")
-public class ActionList {
-
+public class ListAction {
     private static final String LIST_KEY = "list:1";
 
     private RedisTemplate redisTemplate;
@@ -32,6 +29,7 @@ public class ActionList {
         redisTemplate.setHashValueSerializer(stringSerializer);
         this.redisTemplate = redisTemplate;
         this.listOperations = this.redisTemplate.opsForList();
+
     }
 
     /**
