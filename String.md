@@ -116,10 +116,10 @@ valueOperations.set就是对应Redis的SET命令了，相关联的还有SETEX、
 
 设置键key对应value
 参数选项
-> EX seconds – 设置键key的过期时间，单位时秒
-> PX milliseconds – 设置键key的过期时间，单位时毫秒
-> NX – 只有键key不存在的时候才会设置key的值
-> XX – 只有键key存在的时候才会设置key的值
+> * EX seconds – 设置键key的过期时间，单位时秒 
+> * PX milliseconds – 设置键key的过期时间，单位时毫秒
+> * NX – 只有键key不存在的时候才会设置key的值
+> * XX – 只有键key存在的时候才会设置key的值
 
 
 ###### SETRANGE
