@@ -153,7 +153,8 @@ public void setRange() {
 > MSET key value [key value ...]
 
 同时设置多个key、value
-######　MSETNX
+
+###### MSETNX
 > MSETNX key value [key value ...]
 
 同时设置多个key、value，key存在则忽略
